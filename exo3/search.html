@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Hasard</title>
+
+	<script src="js/fct.js"></script>
+
+	<script src="js/init.js"></script>
+</head>
+<body>
+	<header>
+		<h1><a href=".">API</a></h1>
+
+		<nav>
+			<a href=".">Accueil</a>
+			<a href="hasard.html">Hasard</a>
+			<a href="search.html">Recherche</a>
+		</nav>
+	</header>
+	<main>
+		<p>Rechercher de séries</p>
+
+		<form>
+			<input type="text" name="query">
+			<button type="submit">Ok</button>
+		</form>
+	</main>
+
+	<script>
+		//
+		const form = document.querySelector('form')
+		const input = document.querySelector('input')
+
+		form.addEventListener("submit", (e) => {
+			//empeche le comportement naturel du formulaire (on bloque le changement de page)
+			e.preventDefault()
+			
+			console.log(input.value)
+
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poudlard</title>
+</head>
+<body>
+    <h1>Répartition à Poudlard</h1>
+
+    <button id="nouvelEleve">Nouvel élève</boutton>
+    <button id="choixpeau">Choixpeau</boutton>
+
+
+    <h2>Gryffondor</h2>
+    <ul id="gryffondor"></ul>
+
+    <h2>Serdaigle</h2>
+    <ul id="serdaigle"></ul>
+
+    <h2>Poufsouffle</h2>
+    <ul id="poufsouffle"></ul>
+
+    <h2>Serpentard</h2>
+    <ul id="serpentard"></ul>
+
+    <script>
+   
+     let eleve = "";
+
+     let noms = ["Harry", "Ron", "Hermione", "Drago","Luna", "Neville",];
+
+     document.getElementById("nouvelEleve").onclick = function() {
+        let index = Math.floor(Math.random() * noms.length);
+        eleve = noms[index];
+        alert("Nouvel élève : " + eleve)
+};
+
+document.getElementById("choixpeau").onclick = function() {
+    if (eleve == "") {
+        alert("crée un élève d'abord");
+        return;
+    }
+
+    let maisons = ["gryffondor", "serdaigle", "poufsouffle", "serpentard"];
+    
+    let index = Math.floor(Math.random() * maisons.length);
+    let maison = maisons[index];
+
+    let li = document.createElement("li");
+    li.textContent = eleve;
+
+    document.getElementById(maison).appendChild(li);
+    eleve = "";
+};
+
+
+
+</script>
