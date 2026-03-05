@@ -86,6 +86,18 @@ function getRandomInt(max){
 }
 
 
+// fonction qui retourne un nombre entier entre 1 et max
+function getRandomInt(max){
+  return Math.ceil(Math.random() * max);
+}
+
+
+// fonction qui retourne un nombre entier entre 1 et max
+function getRandomInt(max){
+  return Math.ceil(Math.random() * max);
+}
+
+// ✅ fetchSearch doit être EN DEHORS de getRandomInt
 async function fetchSearch(query, selector = "main"){
   try{
     const res = await fetch('https://api.tvmaze.com/search/shows?q=' + encodeURIComponent(query));
@@ -107,4 +119,28 @@ async function fetchSearch(query, selector = "main"){
         return;
       }
 
-      
+      const ul = document.createElement("ul");
+
+      for(let i=0; i<data.length && i<10; i++){
+        const show = data[i].show;
+
+        const li = document.createElement("li");
+        li.textContent = show.name;
+        li.style.cursor = "pointer";
+
+        li.onclick = function(){
+          container.innerHTML = "";
+          fetchInfo(show.id, selector);
+        };
+
+        ul.appendChild(li);
+      }
+
+      container.appendChild(ul);
+    } else {
+      console.log("contenu non disponible");
+    }
+  } catch(error){
+    console.log("impossible d'accéder à l'url");
+  }
+}
