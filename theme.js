@@ -1,4 +1,4 @@
-function changermode() {
+function changerMode() {
     document.body.classList.toggle("dark");
     
 }
