@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport"
 	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<title>Hasard</title>
+	<title>Search</title>
 
 	<script src="js/fct.js"></script>
 
@@ -37,10 +37,13 @@
 		form.addEventListener("submit", (e) => {
 			//empeche le comportement naturel du formulaire (on bloque le changement de page)
 			e.preventDefault()
-			
-			console.log(input.value)
+			console.log("submit ok : ", input.value) 
+            fetchSearch(input.value);
 
-		})
+		
+
+
+		});
 	</script>
 </body>
 </html>

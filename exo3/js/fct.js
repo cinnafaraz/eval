@@ -107,5 +107,28 @@ function getRandomInt(max){
 					const show = data[i].show;
 
 					const li = document.createElement("li");
+					li.textContent = show.name;
+
+					li.style.cursor = "pointer";
+					li.onclick = function(){
+						container.innerHTML = "";
+						fetchInfo(show.id, selector);
+					}
+
+					ul.appendChild(li);
+				}
+
+				container.appendChild(ul);
+
+			}else{
+				console.log("🔴 contenu non disponible");
+			}
+
+		}catch(error){
+			console.log("🚫 impossible d'accéder à l'url");
+		}
+		
+
+
 	}
 }
